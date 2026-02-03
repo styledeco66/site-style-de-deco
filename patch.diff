@@ -1,0 +1,29 @@
+*** Begin Patch
+*** Update File: assets/css/styles.css
+@@
+-body {
+-  margin: 0;
+-  font-family: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
++body {
++  margin: 0;
++  font-family: "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
+@@
+-.section-title {
+-  font-family: "Playfair Display", "Georgia", serif;
++.section-title {
++  font-family: "Playfair Display", "Georgia", serif;
+@@
+-.brand {
+-  font-family: "Playfair Display", serif;
++.brand {
++  font-family: "Playfair Display", serif;
+@@
+-.hero h1 {
+-  font-family: "Playfair Display", serif;
++.hero h1 {
++  font-family: "Playfair Display", serif;
+@@
+-.card h3 {
++.card h3 {
++  font-family: "Playfair Display", "Georgia", serif;
+*** End Patch
