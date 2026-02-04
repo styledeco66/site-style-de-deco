@@ -1,4 +1,4 @@
-﻿const menuToggle = document.querySelector(".menu-toggle");
+const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 if (menuToggle && navLinks) {
@@ -38,48 +38,50 @@ const carousel = document.querySelector("[data-carousel]");
 if (carousel) {
   const track = carousel.querySelector("[data-carousel-track]");
   const slides = track ? Array.from(track.children) : [];
-  const dotsContainer = carousel.querySelector("[data-carousel-dots]");
   const prevBtn = carousel.querySelector("[data-carousel-prev]");
   const nextBtn = carousel.querySelector("[data-carousel-next]");
   let index = 0;
   let timer = null;
   const interval = 6000;
+  let visibleCount = 1;
+  let maxIndex = 0;
+  let currentVisible = 0;
+
+  const buildClones = () => {
+    if (!track) return;
+    track.querySelectorAll("[data-clone]").forEach((clone) => clone.remove());
+    const cloneCount = Math.min(visibleCount, slides.length);
+    for (let i = 0; i < cloneCount; i += 1) {
+      const clone = slides[i].cloneNode(true);
+      clone.setAttribute("data-clone", "true");
+      track.appendChild(clone);
+    }
+    maxIndex = slides.length;
+  };
 
   const update = () => {
     if (!track) return;
     const gapValue = parseFloat(getComputedStyle(track).gap || "0");
     const slideWidth = slides[0] ? slides[0].getBoundingClientRect().width : 0;
+    const trackWidth = track.parentElement
+      ? track.parentElement.getBoundingClientRect().width
+      : 0;
+    visibleCount = slideWidth ? Math.max(1, Math.round(trackWidth / (slideWidth + gapValue))) : 1;
+    if (visibleCount !== currentVisible) {
+      currentVisible = visibleCount;
+      buildClones();
+    }
     const offset = index * (slideWidth + gapValue);
     track.style.transform = `translateX(-${offset}px)`;
-    if (dotsContainer) {
-      dotsContainer.querySelectorAll(".carousel-dot").forEach((dot, i) => {
-        dot.classList.toggle("is-active", i === index);
-      });
-    }
   };
 
-  if (dotsContainer) {
-    dotsContainer.innerHTML = "";
-    slides.forEach((_, i) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "carousel-dot" + (i === 0 ? " is-active" : "");
-      dot.setAttribute("aria-label", `Aller à l'avis ${i + 1}`);
-      dot.addEventListener("click", () => {
-        index = i;
-        update();
-      });
-      dotsContainer.appendChild(dot);
-    });
-  }
-
   const goNext = () => {
-    index = (index + 1) % slides.length;
+    index = index + 1;
     update();
   };
 
   const goPrev = () => {
-    index = (index - 1 + slides.length) % slides.length;
+    index = index <= 0 ? 0 : index - 1;
     update();
   };
 
@@ -100,6 +102,19 @@ if (carousel) {
   carousel.addEventListener("mouseenter", stop);
   carousel.addEventListener("mouseleave", start);
   window.addEventListener("resize", update);
+  if (track) {
+    track.addEventListener("transitionend", () => {
+      if (index >= maxIndex) {
+        track.style.transition = "none";
+        index = 0;
+        const gapValue = parseFloat(getComputedStyle(track).gap || "0");
+        const slideWidth = slides[0] ? slides[0].getBoundingClientRect().width : 0;
+        track.style.transform = `translateX(0px)`;
+        void track.offsetHeight;
+        track.style.transition = "transform 0.5s ease";
+      }
+    });
+  }
 
   update();
   start();
@@ -178,7 +193,4 @@ if (compare) {
 
   startIntro();
 }
-
-
-
 
