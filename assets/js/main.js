@@ -194,3 +194,154 @@ if (compare) {
   startIntro();
 }
 
+const miniSliders = document.querySelectorAll("[data-mini-slider]");
+miniSliders.forEach((card) => {
+  const track = card.querySelector("[data-mini-track]");
+  const slides = track ? Array.from(track.children) : [];
+  if (!track || slides.length === 0) return;
+  const prevBtn = card.querySelector("[data-mini-prev]");
+  const nextBtn = card.querySelector("[data-mini-next]");
+  const link = card.dataset.link;
+  let index = 0;
+  let timer = null;
+  const interval = 3500;
+
+  const update = () => {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  };
+
+  const setIndex = (nextIndex) => {
+    index = Math.min(Math.max(nextIndex, 0), slides.length - 1);
+    update();
+  };
+
+  const goNext = () => {
+    index = (index + 1) % slides.length;
+    update();
+  };
+
+  const goPrev = () => {
+    index = (index - 1 + slides.length) % slides.length;
+    update();
+  };
+
+  const start = () => {
+    if (timer || slides.length <= 1) return;
+    timer = setInterval(goNext, interval);
+  };
+
+  const stop = () => {
+    if (!timer) return;
+    clearInterval(timer);
+    timer = null;
+  };
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      goNext();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      goPrev();
+    });
+  }
+
+  card.addEventListener("mouseenter", stop);
+  card.addEventListener("mouseleave", start);
+
+  if (link) {
+    card.addEventListener("click", (event) => {
+      const target = event.target;
+      if (target && (target.closest("[data-mini-prev]") || target.closest("[data-mini-next]") || target.closest("a"))) {
+        return;
+      }
+      window.location.href = link;
+    });
+  }
+
+  const thumbs = card.querySelectorAll("[data-mini-thumb]");
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      const nextIndex = Number(thumb.dataset.index);
+      stop();
+      if (!Number.isNaN(nextIndex)) {
+        setIndex(nextIndex);
+      }
+    });
+  });
+
+  update();
+  start();
+
+  // Zoom behavior removed by request.
+});
+
+const videoCards = document.querySelectorAll("[data-video-card]");
+if (videoCards.length) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target.querySelector("video");
+        if (!video) return;
+        if (entry.isIntersecting) {
+          // Try to autoplay with sound; if blocked, fall back to muted autoplay.
+          video.muted = false;
+          const playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(() => {
+              video.muted = true;
+              video.play().catch(() => {});
+            });
+          }
+        } else {
+          video.pause();
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  videoCards.forEach((card) => {
+    const video = card.querySelector("video");
+    const button = card.querySelector(".video-sound");
+    const endButton = card.querySelector(".video-end");
+    if (video) {
+      video.muted = true;
+      observer.observe(card);
+    }
+    if (button && video) {
+      button.addEventListener("click", () => {
+        video.muted = !video.muted;
+        button.setAttribute("aria-pressed", String(!video.muted));
+        button.textContent = video.muted ? "Activer le son" : "Couper le son";
+        if (!video.muted) {
+          const playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(() => {});
+          }
+        }
+      });
+    }
+    if (video && endButton) {
+      endButton.classList.remove("is-visible");
+      video.addEventListener("ended", () => {
+        endButton.classList.add("is-visible");
+      });
+      video.addEventListener("play", () => {
+        endButton.classList.remove("is-visible");
+      });
+    }
+
+    if (video && card.dataset.videoLink) {
+      video.addEventListener("click", () => {
+        window.location.href = card.dataset.videoLink;
+      });
+    }
+  });
+}
