@@ -1087,6 +1087,10 @@ footer a {
   margin-bottom: 20px;
 }
 
+.project .section-subtitle--large {
+  font-size: 1.05em;
+}
+
 .project-slider .mini-slider {
   aspect-ratio: 5 / 2;
   border-radius: var(--radius-md);
