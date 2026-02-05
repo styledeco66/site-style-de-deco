@@ -358,12 +358,5 @@ if (videoCards.length) {
 
 const faqItems = document.querySelectorAll(".faq details");
 faqItems.forEach((item) => {
-  item.addEventListener("mouseenter", () => {
-    item.open = true;
-    item.classList.add("is-hover");
-  });
-  item.addEventListener("mouseleave", () => {
-    item.open = false;
-    item.classList.remove("is-hover");
-  });
+  item.classList.remove("is-hover");
 });
