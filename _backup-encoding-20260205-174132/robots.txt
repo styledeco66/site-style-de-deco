@@ -1,0 +1,8 @@
+﻿User-agent: *
+Allow: /
+Sitemap: https://styledeco66.fr/sitemap.xml
+
+
+
+
+
