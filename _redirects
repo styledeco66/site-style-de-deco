@@ -2,3 +2,4 @@
 /merci    /merci/    301
 /facade-eclatante-perpignan/                 /realisations/  301!
 /realisation/facade-eclatante-perpignan/     /realisations/  301!
+/realisation/*   /realisations/:splat   301!
