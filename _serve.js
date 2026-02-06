@@ -18,10 +18,13 @@ http.createServer((req, res) => {
   const rel = urlPath === '/' ? 'index.html' : urlPath.slice(1);
   const filePath = path.join(root, rel.replace(/\//g, path.sep));
   if (!filePath.startsWith(root)) { res.writeHead(403); return res.end(); }
-  fs.readFile(filePath, (err, data) => {
+  const ext = path.extname(filePath).toLowerCase();
+  const isHtml = ext === '.html';
+  const readOptions = isHtml ? 'utf8' : undefined;
+  fs.readFile(filePath, readOptions, (err, data) => {
     if (err) { res.writeHead(404); return res.end('Not found'); }
-    const ext = path.extname(filePath).toLowerCase();
-    res.writeHead(200, { 'Content-Type': mime[ext] || 'application/octet-stream' });
+    const contentType = mime[ext] || 'application/octet-stream';
+    res.writeHead(200, { 'Content-Type': contentType });
     res.end(data);
   });
 }).listen(8000, '0.0.0.0', () => console.log('Server on 8000'));

@@ -1,8 +1,3 @@
 ﻿User-agent: *
 Allow: /
-Sitemap: https://styledeco66.fr/sitemap.xml
-
-
-
-
-
+Sitemap: https://styleetdeco.fr/sitemap.xml

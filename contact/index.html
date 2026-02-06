@@ -1,197 +1,207 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact et devis | Style & Déco</title>
 
-  <meta name="description" content="Demandez un devis peinture ou une intervention rapide à Saint-Cyprien. Réponse rapide par téléphone ou email." />
-  <link rel="canonical" href="https://styledeco66.fr/contact/" />
-  <link rel="alternate" hreflang="fr-FR" href="https://styledeco66.fr/contact/" />
-  <link rel="alternate" hreflang="x-default" href="https://styledeco66.fr/contact/" />
+  <meta name="description" content="Demandez un devis peinture ou une intervention rapide à Saint-Cyprien. Réponse rapide par téléphone ou email.">
+  <link rel="canonical" href="https://styleetdeco.fr/contact/">
+  <link rel="alternate" hreflang="fr-FR" href="https://styleetdeco.fr/contact/">
+  <link rel="alternate" hreflang="x-default" href="https://styleetdeco.fr/contact/">
 
-  <meta property="og:title" content="Contact et devis | Style & Déco" />
-  <meta property="og:description" content="Contactez Style & Déco pour un devis rapide ou une urgence dégâts des eaux." />
-  <meta property="og:url" content="https://styledeco66.fr/contact/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://styledeco66.fr/assets/images/hero-interieur.jpg" />
+  <meta property="og:title" content="Contact et devis | Style & Déco">
+  <meta property="og:description" content="Contactez Style & Déco pour un devis rapide ou une urgence dégâts des eaux.">
+  <meta property="og:url" content="https://styleetdeco.fr/contact/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://styleetdeco.fr/assets/images/hero-interieur.jpg">
 
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="/"><img src="/assets/images/style-deco-logo.png" alt="Style & Déco" width="160" height="44" /></a>
-      <nav>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">
-          Menu
-        </button>
 
-        <div id="primary-nav" class="nav-links" role="navigation" aria-label="Navigation principale">
-          <a href="/services/">Services</a>
-          <a href="/realisations/">Réalisations</a>
-          <a href="/contact/">Contact</a>
+<header>
+  <div class="container nav">
+    <a class="brand" href="/">
+      <img src="/assets/images/style-deco-logo.png" alt="Style & Déco" width="160" height="44">
+    </a>
 
-          <div class="nav-cta">
-            <a class="btn btn-outline" href="tel:+33650756242">Appeler</a>
-            <a class="btn btn-primary" href="/contact/">Devis rapide</a>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
+    <nav>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
 
-  <main>
-    <section class="section">
-      <div class="container split split-2">
-        <div>
-          <h1 class="section-title">Demander un devis</h1>
-          <p class="section-subtitle">
-            Parlez-nous de votre projet. Nous vous répondons rapidement par téléphone ou email.
-          </p>
+      <div id="primary-nav" class="nav-links" role="navigation" aria-label="Navigation principale">
+        <a href="/services/">Services</a>
+        <a href="/realisations/">Réalisations</a>
+        <a href="/contact/">Contact</a>
 
-          <div class="highlight">
-            <h2>Urgence dégâts des eaux</h2>
-            <p>Besoin d'une intervention rapide ? Appelez-nous dès maintenant.</p>
-            <a class="btn btn-dark" href="tel:+33650756242">Appeler maintenant</a>
-          </div>
-        </div>
-
-        <div>
-          <form class="form"
-                name="contact"
-                method="POST"
-                action="/merci/"
-                data-netlify="true"
-                data-netlify-honeypot="company"
-                data-guard="3000">
-            <input type="hidden" name="form-name" value="contact" />
-
-            <p class="honeypot">
-              <label>Ne pas remplir : <input name="company" /></label>
-            </p>
-
-            <div>
-              <label for="name">Nom</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
-            </div>
-
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
-            </div>
-
-            <div>
-              <label for="phone">Téléphone</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" required />
-            </div>
-
-            <div>
-              <label for="city">Ville</label>
-              <input id="city" name="city" type="text" autocomplete="address-level2" required />
-            </div>
-
-            <div>
-              <label for="service">Type de prestation</label>
-              <select id="service" name="service" required>
-                <option value="">Sélectionner</option>
-                <option>Peinture intérieure</option>
-                <option>Peinture extérieure</option>
-                <option>Façade et ravalement</option>
-                <option>Préparation et enduits</option>
-                <option>Urgence / remise en état</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-
-            <div class="consent">
-              <input id="consent" name="consent" type="checkbox" required />
-              <label for="consent">
-                J'accepte que mes données soient utilisées pour être recontacté.
-                <a href="/politique-confidentialite/">Lire la politique de confidentialité</a>.
-              </label>
-            </div>
-
-            <button class="btn btn-primary" type="submit">Envoyer la demande</button>
-            <p class="notice">Réponse rapide, devis gratuit et sans engagement.</p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <p class="brand">Style & Déco</p>
-        <p>Peintre en bâtiment pour particuliers et petits professionnels.</p>
-      </div>
-
-      <div>
-        <p><strong>Contact</strong></p>
-        <p>
-          <a href="tel:+33650756242">06 50 75 62 42</a><br />
-          <a href="mailto:style.deco66@gmail.com">style.deco66@gmail.com</a>
-        </p>
-
-        <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px;">
+        <div class="nav-cta">
           <a class="btn btn-outline" href="tel:+33650756242">Appeler</a>
           <a class="btn btn-primary" href="/contact/">Devis rapide</a>
         </div>
       </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container split split-2">
 
       <div>
-        
-        <p>
-          <a href="/">Accueil</a><br />
-          <a href="/services/">Services</a><br />
-          <a href="/realisations/">Réalisations</a><br />
-          <a href="/mentions-legales/">Mentions légales</a><br />
-          <a href="/politique-confidentialite/">Politique de confidentialité</a>
+        <h1 class="section-title">Demander un devis</h1>
+        <p class="section-subtitle">
+          Parlez-nous de votre projet. Nous vous répondons rapidement par téléphone ou email.
         </p>
+
+        <div class="highlight">
+          <h2>Urgence dégâts des eaux</h2>
+          <p>Besoin d'une intervention rapide ? Appelez-nous dès maintenant.</p>
+          <a class="btn btn-dark" href="tel:+33650756242">Appeler maintenant</a>
+        </div>
+      </div>
+
+      <div>
+        <form class="form"
+              name="contact"
+              method="POST"
+              action="/merci/"
+              data-netlify="true"
+              data-netlify-honeypot="company"
+              data-guard="3000">
+
+          <input type="hidden" name="form-name" value="contact">
+
+          <p class="honeypot">
+            <label>Ne pas remplir : <input name="company"></label>
+          </p>
+
+          <div>
+            <label for="name">Nom</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div>
+            <label for="phone">Téléphone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+
+          <div>
+            <label for="city">Ville</label>
+            <input id="city" name="city" type="text" autocomplete="address-level2" required>
+          </div>
+
+          <div>
+            <label for="service">Type de prestation</label>
+            <select id="service" name="service" required>
+              <option value="">Sélectionner</option>
+              <option>Peinture intérieure</option>
+              <option>Peinture extérieure</option>
+              <option>Façade et ravalement</option>
+              <option>Préparation et enduits</option>
+              <option>Urgence / remise en état</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <div class="consent">
+            <input id="consent" name="consent" type="checkbox" required>
+            <label for="consent">
+              J'accepte que mes données soient utilisées pour être recontacté.
+              <a href="/politique-confidentialite/">Lire la politique de confidentialité</a>.
+            </label>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Envoyer la demande</button>
+          <p class="notice">Réponse rapide, devis gratuit et sans engagement.</p>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+      <p class="brand">Style & Déco</p>
+      <p>Peintre en bâtiment pour particuliers et petits professionnels.</p>
+    </div>
+
+    <div>
+      <p><strong>Contact</strong></p>
+      <p>
+        <a href="tel:+33650756242">06 50 75 62 42</a><br>
+        <a href="mailto:style.deco66@gmail.com">style.deco66@gmail.com</a>
+      </p>
+
+      <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;">
+        <a class="btn btn-outline" href="tel:+33650756242">Appeler</a>
+        <a class="btn btn-primary" href="/contact/">Devis rapide</a>
       </div>
     </div>
 
-    <div class="container footer-note">© 2026 Style & Déco. Tous droits réservés.</div>
-  </footer>
+    <div>
+      <p>
+        <a href="/">Accueil</a><br>
+        <a href="/services/">Services</a><br>
+        <a href="/realisations/">Réalisations</a><br>
+        <a href="/mentions-legales/">Mentions légales</a><br>
+        <a href="/politique-confidentialite/">Politique de confidentialité</a>
+      </p>
+    </div>
 
-  <div class="sticky-mobile" aria-label="Actions rapides">
-    <a href="tel:+33650756242">Appeler</a>
-    <a href="mailto:style.deco66@gmail.com">Email</a>
-    <a href="/contact/">Devis</a>
   </div>
 
-  <script src="/assets/js/main.js" defer></script>
+  <div class="container footer-note">
+    © 2026 Style & Déco. Tous droits réservés.
+  </div>
+</footer>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://styledeco66.fr/contact/",
-        "url": "https://styledeco66.fr/contact/",
-        "name": "Contact et devis | Style & Déco"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://styledeco66.fr/" },
-          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://styledeco66.fr/contact/" }
-        ]
-      }
-    ]
-  }
-  </script>
+<div class="sticky-mobile" aria-label="Actions rapides">
+  <a href="tel:+33650756242">Appeler</a>
+  <a href="mailto:style.deco66@gmail.com">Email</a>
+  <a href="/contact/">Devis</a>
+</div>
+
+<script src="/assets/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://styleetdeco.fr/contact/",
+      "url": "https://styleetdeco.fr/contact/",
+      "name": "Contact et devis | Style & Déco"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://styleetdeco.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://styleetdeco.fr/contact/" }
+      ]
+    }
+  ]
+}
+</script>
+
 </body>
 </html>
