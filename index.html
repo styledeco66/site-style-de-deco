@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Finitions premium, devis rapide, urgences dégâts des eaux.">
   <meta name="twitter:image" content="https://styleetdeco.fr/assets/images/hero-interieur.jpg">
 
-  <link rel="preload" as="image" href="/assets/images/hero-interieur.webp" imagesrcset="/assets/images/hero-interieur.webp">
+  <link rel="preload" as="image" href="/assets/images/hero-interieur-768.webp" imagesrcset="/assets/images/hero-interieur-768.webp 768w, /assets/images/hero-interieur-1200.webp 1200w, /assets/images/hero-interieur.webp 1600w" imagesizes="100vw">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -53,8 +53,8 @@
   <main>
     <section class="hero" aria-label="Peinture intérieure premium">
       <picture>
-        <source srcset="/assets/images/hero-interieur.webp" type="image/webp">
-        <img src="/assets/images/hero-interieur.jpg" alt="Salon lumineux avec murs peints et finitions haut de gamme" width="1600" height="900">
+        <source type="image/webp" srcset="/assets/images/hero-interieur-768.webp 768w, /assets/images/hero-interieur-1200.webp 1200w, /assets/images/hero-interieur.webp 1600w" sizes="100vw">
+        <img src="/assets/images/hero-interieur.jpg" alt="Salon lumineux avec murs peints et finitions haut de gamme" width="1600" height="900" fetchpriority="high" decoding="async">
       </picture>
 
       <div class="container hero-content">
@@ -96,8 +96,8 @@
           <article class="card service-card" tabindex="0">
             <div class="service-media">
               <picture>
-                <source type="image/webp" srcset="/assets/images/service-interieur.webp">
-                <img src="/assets/images/service-interieur.jpg" alt="Salon en rénovation avec travaux de peinture intérieure" width="600" height="450" loading="lazy">
+                <source type="image/webp" srcset="/assets/images/service-interieur-640.webp 640w, /assets/images/service-interieur.webp 1200w" sizes="(max-width: 900px) 90vw, 25vw">
+                <img src="/assets/images/service-interieur.jpg" alt="Salon en rénovation avec travaux de peinture intérieure" width="600" height="450" loading="lazy" decoding="async">
               </picture>
             </div>
             <div class="service-overlay">
@@ -125,8 +125,8 @@
           <article class="card service-card" tabindex="0">
             <div class="service-media">
               <picture>
-                <source type="image/webp" srcset="/assets/images/service-facade.webp">
-                <img src="/assets/images/service-facade.jpg" alt="Ravalement et peinture de façade" width="600" height="450" loading="lazy">
+                <source type="image/webp" srcset="/assets/images/service-facade-640.webp 640w, /assets/images/service-facade.webp 1200w" sizes="(max-width: 900px) 90vw, 25vw">
+                <img src="/assets/images/service-facade.jpg" alt="Ravalement et peinture de façade" width="600" height="450" loading="lazy" decoding="async">
               </picture>
             </div>
             <div class="service-overlay">
